@@ -6,7 +6,7 @@ wrksrc="${pkgname}"
 short_desc="A simple, small, C++ XML parser"
 maintainer="Juan RP <xtraeme@voidlinux.org>"
 homepage="http://www.grinninglizard.com/tinyxml/"
-license="zlib"
+license="Zlib"
 distfiles="${SOURCEFORGE_SITE}/${pkgname}/${pkgname}_2_6_2.tar.gz"
 checksum=15bdfdcec58a7da30adc87ac2b078e4417dbe5392f3afb719f9ba6d062645593
 

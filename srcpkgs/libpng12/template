@@ -8,7 +8,7 @@ makedepends="zlib-devel"
 short_desc="Library for manipulating PNG images, compatibility package"
 maintainer="lemmi <lemmi@nerd2nerd.org>"
 homepage="http://www.libpng.org/pub/png/libpng.html"
-license="zlib"
+license="Zlib"
 distfiles="ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng12/libpng-${version}.tar.xz"
 checksum=b4635f15b8adccc8ad0934eea485ef59cc4cae24d0f0300a9a941e51974ffcc7
 

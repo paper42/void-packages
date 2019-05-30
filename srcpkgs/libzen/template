@@ -5,7 +5,7 @@ revision=2
 short_desc="Shared library for libmediainfo and mediainfo"
 homepage="http://mediaarea.net/MediaInfo"
 maintainer="Georg Schabel <gescha@posteo.de>"
-license="zlib"
+license="Zlib"
 
 distfiles="https://mediaarea.net/download/source/${pkgname}/${version}/${pkgname}_${version}.tar.gz"
 checksum=8c4323bd3f1a286a565b634cb00c9877922296679f49ac55b05f7c6e56d77c43
