@@ -1,23 +1,22 @@
 # Template file for 'android-studio'
 pkgname=android-studio
-version=3.3.2
+version=3.4.1
 revision=1
-# _studio_build and _studio_rev are for downloading the zip from dl.google.com
+# _studio_build and _studio_rev are for downloading the tar.gz from dl.google.com
 # https://developer.android.com/studio/#resources as of 2018-07-12
-_studio_build=182.5314842
+_studio_build=183.5522156
 _studio_rev=0
 archs="x86_64 i686"
 create_wrksrc=yes
 build_style=fetch
-hostmakedepends="unzip"
 depends="gtk+ libGL"
 short_desc="Official Android IDE"
 maintainer="Jordyn Carattini <onlinecloud1@gmail.com>"
 license="Apache-2.0"
 homepage="http://tools.android.com/"
 # changelog="https://developer.android.com/studio/releases/index.html"
-distfiles="https://dl.google.com/dl/android/studio/ide-zips/${version}.${_studio_rev}/android-studio-ide-${_studio_build}-linux.zip"
-checksum=8257d3eab61c3da088e26689888a13e53e210c109a4e775ed71158b4471bb06a
+distfiles="https://dl.google.com/dl/android/studio/ide-zips/${version}.${_studio_rev}/android-studio-ide-${_studio_build}-linux.tar.gz"
+checksum=60488b63302fef657367105d433321de248f1fb692d06dba6661efec434b9478
 repository=nonfree
 nopie=yes
 nostrip=yes
@@ -35,7 +34,7 @@ skiprdeps="/opt/android-studio/plugins/android/resources/installer/arm64-v8a/ins
  /opt/android-studio/plugins/android/resources/perfd/x86/perfd"
 
 do_install() {
-	unzip android-studio-ide-${_studio_build}-linux.zip
+	tar -xf android-studio-ide-${_studio_build}-linux.tar.gz
 	vmkdir opt/${pkgname}
 	vcopy android-studio/bin opt/${pkgname}/
 	vcopy android-studio/gradle opt/${pkgname}/
