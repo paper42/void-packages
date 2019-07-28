@@ -1,6 +1,6 @@
 # Template file for 'calibre'
 pkgname=calibre
-version=3.45.2
+version=3.46.0
 revision=1
 build_style=python2-module
 pycompile_dirs="/usr/lib/calibre/"
@@ -23,7 +23,7 @@ maintainer="bra1nwave <brainwave@openmailbox.org>"
 license="GPL-3.0-only"
 homepage="https://calibre-ebook.com"
 distfiles="https://download.calibre-ebook.com/${version}/calibre-${version}.tar.xz"
-checksum=0528b4e19c87791cec756ee253bd39cd4e135e86833c9cf673000e5dce78e98c
+checksum=e947b9854f9db344ee07e5495feaad759c96936d89a128d3a3587c3503d09ab6
 nocross=yes
 
 do_configure() {
