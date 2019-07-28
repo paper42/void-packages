@@ -1,6 +1,6 @@
 # Template file for 'glances'
 pkgname=glances
-version=3.1.0
+version=3.1.1
 revision=1
 archs=noarch
 wrksrc="Glances-${version}"
@@ -13,7 +13,7 @@ maintainer="Alessio Sergi <al3hex@gmail.com>"
 license="LGPL-3.0-or-later"
 homepage="https://github.com/nicolargo/glances"
 distfiles="${PYPI_SITE}/G/Glances/Glances-${version}.tar.gz"
-checksum=904e3dbbebe261dd98d02f4f0a340e4934b12192e8b303b78473f617c0fcd6ca
+checksum=2856a8519d08051ab65d118208226e60971453f6365712c3f75347acff7b411e
 
 post_install() {
 	vsconf conf/glances.conf
