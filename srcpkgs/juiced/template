@@ -1,0 +1,22 @@
+# Template file for 'juiced'
+pkgname=juiced
+version=730b236f22acd13c4945c61fb194e3d53156c81b
+revision=1
+build_style=gnu-makefile
+hostmakedepends="pkg-config"
+makedepends="libnotify-devel libglib-devel"
+depends="libnotify"
+short_desc="Battery daemon which notifies the user via libnotify about low battery"
+maintainer="Paper <paper@tilde.institute>"
+license="ISC"
+homepage="https://github.com/drkhsh/juiced/"
+distfiles="https://github.com/drkhsh/juiced/archive/$version.tar.gz"
+checksum=7c8455a6551b2612975b8a5564eb3789bacef8b91b053a684d9dc0ab6d0923a9
+
+do_build() {
+    make
+}
+
+post_install() {
+    vlicense LICENSE
+}
