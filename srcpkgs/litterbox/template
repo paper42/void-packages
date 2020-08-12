@@ -1,0 +1,14 @@
+# Template file for 'litterbox'
+pkgname=litterbox
+version=1.5
+revision=1
+build_style=gnu-configure
+make_build_target="all"
+hostmakedepends="pkg-config"
+makedepends="sqlite-devel libressl-devel"
+short_desc="TLS-only IRC logger"
+maintainer="Paper <paper@tilde.institute>"
+license="GPL-3.0-or-later"
+homepage="https://git.causal.agency/litterbox/"
+distfiles="https://git.causal.agency/litterbox/snapshot/litterbox-$version.tar.gz"
+checksum=2013086e40d86e9b1133c422c5524595c735f2a2b06691091f1e1cd281641ec1
