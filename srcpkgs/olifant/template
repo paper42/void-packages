@@ -1,0 +1,14 @@
+# Template file for 'olifant'
+pkgname=olifant
+version=0.2.1
+revision=1
+wrksrc=olifant-$version-beta6
+build_style=meson
+hostmakedepends="vala pkg-config"
+makedepends="gtk+3-devel libsoup-devel granite-devel json-glib-devel libhandy1-devel vala-devel glib-devel gettext-devel"
+short_desc="Native GTK Mastodon client"
+maintainer="Paper <paper@tilde.institute>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/cleac/olifant/"
+distfiles="https://github.com/cleac/olifant/archive/$version-beta6.tar.gz"
+checksum=5747f1b9f170846dc42aeb6ecb4e8e555bf0d102d45094164914af3bbc67715c
