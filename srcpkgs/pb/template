@@ -1,13 +1,16 @@
 # Template file for 'pb'
 pkgname=pb
-version=v2020.07.05
+version=2020.09.05
 revision=1
 wrksrc=pb
 build_style=gnu-makefile
-hostmakedepends="util-linux"
 short_desc="0x0 pastebin utility"
 maintainer="Paper <paper@tilde.institute>"
 license="GPL-3.0-only"
 homepage="https://tildegit.org/tomasino/pb/"
-distfiles="https://tildegit.org/tomasino/pb/archive/$version.tar.gz"
-checksum=0f902452c17d5e2bf1a51cf91150b458dbb6378a60f897495dcb9596a0e06278
+distfiles="https://tildegit.org/tomasino/pb/archive/v$version.tar.gz"
+checksum=3d4aa0fdda81f4be46742a43ef30d8cc793870a16701b49b7e5062363cc151f6
+
+do_build() {
+    true
+}
