@@ -1,0 +1,27 @@
+# Template file for 'drist'
+pkgname=drist
+version=2.02
+revision=1
+archs=noarch
+wrksrc="$pkgname-v$version"
+build_style=gnu-makefile
+depends="openssh rsync"
+short_desc="Remote deployment tool"
+maintainer="Paper <paper@tilde.institute>"
+license="BSD-2-Clause"
+homepage="gopher://bitreich.org/1/scm/drist/"
+distfiles="ftp://bitreich.org/releases/drist/drist-v$version.tgz"
+checksum=329107d1ee63d0514c907a893dfc5b8beb166f643ec5300e044e9493d4961711
+alternatives="
+	drist:/usr/bin/drist:/usr/bin/drist2
+	drist:/usr/share/examples/drist:/usr/share/examples/drist2
+	drist:/usr/share/man/man1/drist.1:/usr/share/man/man1/drist2.1
+"
+
+do_install() {
+	vbin drist drist2
+	vman drist.1 drist2.1
+	vmkdir usr/share/examples/drist2/
+	vcopy examples usr/share/examples/drist2/
+	vlicense LICENSE
+}
