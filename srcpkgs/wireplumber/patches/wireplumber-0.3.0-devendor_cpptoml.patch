@@ -1,0 +1,66 @@
+patch from arch linux
+diff -ruN lib/wptoml/array.cpp lib/wptoml/array.cpp
+--- lib/wptoml/array.cpp	2020-06-29 18:36:49.000000000 +0200
++++ lib/wptoml/array.cpp	2020-07-19 09:50:14.930311451 +0200
+@@ -10,7 +10,7 @@
+ #include <functional>
+ 
+ /* CPPTOML */
+-#include <include/cpptoml.h>
++#include <cpptoml.h>
+ 
+ /* TOML */
+ #include "private.h"
+diff -ruN lib/wptoml/file.cpp lib/wptoml/file.cpp
+--- lib/wptoml/file.cpp	2020-06-29 18:36:49.000000000 +0200
++++ lib/wptoml/file.cpp	2020-07-19 09:50:28.923522152 +0200
+@@ -7,7 +7,7 @@
+  */
+ 
+ /* CPPTOML */
+-#include <include/cpptoml.h>
++#include <cpptoml.h>
+ 
+ /* TOML */
+ #include "private.h"
+diff -ruN lib/wptoml/table.cpp lib/wptoml/table.cpp
+--- lib/wptoml/table.cpp	2020-06-29 18:36:49.000000000 +0200
++++ lib/wptoml/table.cpp	2020-07-19 09:50:46.786698703 +0200
+@@ -10,7 +10,7 @@
+ #include <functional>
+ 
+ /* CPPTOML */
+-#include <include/cpptoml.h>
++#include <cpptoml.h>
+ 
+ /* TOML */
+ #include "private.h"
+diff -ruN meson.build meson.build
+--- meson.build	2020-06-29 18:36:49.000000000 +0200
++++ meson.build	2020-07-19 10:17:13.288978511 +0200
+@@ -26,9 +26,13 @@
+   wireplumber_config_dir = join_paths(get_option('prefix'), get_option('sysconfdir'), 'wireplumber')
+ endif
+ 
+-cmake = import('cmake')
+-cpptoml = cmake.subproject('cpptoml')
+-cpptoml_dep = cpptoml.dependency('cpptoml')
++if get_option('wrap_mode') == 'nodownload'
++  cpptoml_dep = dependency('cpptoml')
++else
++  cmake = import('cmake')
++  cpptoml = cmake.subproject('cpptoml')
++  cpptoml_dep = cpptoml.dependency('cpptoml')
++endif
+ 
+ gobject_dep = dependency('gobject-2.0', version : '>= 2.58')
+ gmodule_dep = dependency('gmodule-2.0', version : '== ' + gobject_dep.version())
+diff -ruN subprojects/cpptoml.wrap subprojects/cpptoml.wrap
+--- subprojects/cpptoml.wrap	2020-06-29 18:36:49.000000000 +0200
++++ subprojects/cpptoml.wrap	2020-07-19 10:16:27.232734437 +0200
+@@ -1,4 +1,4 @@
+ [wrap-git]
+ directory=cpptoml
+ url=https://github.com/skystrife/cpptoml.git
+-revision=master
++revision=v0.1.1
