@@ -1,0 +1,15 @@
+# Template file for 'gping'
+pkgname=gping
+version=0.1.7
+revision=1
+build_style=cargo
+short_desc="Ping, but with a graph"
+maintainer="Paper <paper@tilde.institute>"
+license="MIT"
+homepage="https://github.com/orf/gping/"
+distfiles="https://github.com/orf/gping/archive/v${version}.tar.gz"
+checksum=5c2ff5e1d72fe1cc55b69eab073bb6ddec0fca1303313865e9c1d43bc52e85a3
+
+post_install() {
+	vlicense LICENSE
+}
