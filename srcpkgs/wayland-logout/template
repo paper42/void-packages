@@ -1,0 +1,16 @@
+# Template file for 'wayland-logout'
+pkgname=wayland-logout
+version=1.0
+revision=1
+build_style=meson
+configure_args="-Dimplementation=C"
+short_desc="Sends SIGINT to a Wayland compositor"
+maintainer="Paper <paper@tilde.institute>"
+license="MIT"
+homepage="https://github.com/soreau/wayland-logout"
+distfiles="https://github.com/soreau/wayland-logout/archive/v${version}.tar.gz"
+checksum=445eb9a978481871dbc51ea0e9cde57ca9f778eda55ecd8a5aac205a71e7f0e6
+
+do_install() {
+	vbin build/wayland-logout
+}
