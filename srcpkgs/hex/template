@@ -1,6 +1,6 @@
 # Template file for 'hex'
 pkgname=hex
-version=0.3.0
+version=0.4.0
 revision=1
 build_style=cargo
 short_desc="Futuristic take on hexdump"
@@ -8,7 +8,7 @@ maintainer="SolitudeSF <solitudesf@protonmail.com>"
 license="MIT"
 homepage="https://github.com/sitkevij/hex"
 distfiles="${homepage}/archive/v${version}.tar.gz"
-checksum=d929593ae5851c6cb7e778f759fca380245d6053fa3b0cb9643e598a37015c84
+checksum=4a452d4903c39311e4aaabd3e56027d9f33084b6de1fc3803c9a33ed0179f76a
 
 post_install() {
 	vlicense LICENSE
