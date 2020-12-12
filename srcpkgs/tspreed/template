@@ -1,0 +1,11 @@
+# Template file for 'tspreed'
+pkgname=tspreed
+version=1.2.1
+revision=1
+build_style=gnu-makefile
+short_desc="Terminal RSVP speed reader with Spritz-like functionality"
+maintainer="KawaiiAmber <japaneselearning101@gmail.com>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/n-ivkovic/tspreed"
+distfiles="https://github.com/n-ivkovic/tspreed/archive/v${version}.tar.gz"
+checksum=a192e9b32b91c20a904914c07b171c60957da1a7674a3710975fed8593ec2dc8
