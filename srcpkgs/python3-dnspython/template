@@ -1,17 +1,18 @@
 # Template file for 'python3-dnspython'
 pkgname=python3-dnspython
-version=1.16.0
-revision=5
+version=2.0.0
+revision=1
 wrksrc="dnspython-${version}"
 build_style=python3-module
-hostmakedepends="python3-setuptools unzip"
-depends="python3"
+hostmakedepends="python3-setuptools"
+depends="python3 python-cryptography"
 short_desc="DNS toolkit for Python3"
 maintainer="Orphaned <orphan@voidlinux.org>"
 license="ISC"
 homepage="http://www.dnspython.org/"
+changelog="https://raw.githubusercontent.com/rthalley/dnspython/master/doc/whatsnew.rst"
 distfiles="${PYPI_SITE}/d/dnspython/dnspython-${version}.zip"
-checksum=36c5e8e38d4369a08b6780b7f27d790a292b2b08eea01607865bf0936c558e01
+checksum=044af09374469c3a39eeea1a146e8cac27daec951f1f1f157b1962fc7cb9d1b7
 
 post_install() {
 	vlicense LICENSE
