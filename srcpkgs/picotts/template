@@ -1,0 +1,21 @@
+# Template file for 'picotts'
+pkgname=picotts
+version=0.0.0.git
+revision=1
+wrksrc=picotts/pico
+build_style=gnu-configure
+hostmakedepends="git libtool automake autoconf"
+makedepends="popt-devel"
+depends=""
+short_desc="Text to speech voice synthesizer from SVox, included in Android AOSP"
+maintainer="Paper <paper@tilde.institute>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/naggety/picotts"
+
+do_fetch() {
+    git clone https://github.com/naggety/picotts
+}
+
+pre_configure() {
+    ./autogen.sh
+}
