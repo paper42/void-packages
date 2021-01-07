@@ -1,0 +1,63 @@
+From 192d56c3fb61c43a3a5c3189a2a194a90e7bb3b4 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Jaakko=20Ker=C3=A4nen?= <jaakko.keranen@iki.fi>
+Date: Tue, 5 Jan 2021 08:54:31 +0200
+Subject: [PATCH] Embed: Use a shell script for bincat
+
+Todo: Needs testing if this is portable enough. Should be pretty POSIX, though.
+---
+ res/Embed.cmake |  9 ++++++++-
+ res/bincat.sh   | 22 ++++++++++++++++++++++
+ 2 files changed, 30 insertions(+), 1 deletion(-)
+ create mode 100755 res/bincat.sh
+
+diff --git a/res/Embed.cmake b/res/Embed.cmake
+index bab0634..1a971cc 100644
+--- a/res/Embed.cmake
++++ b/res/Embed.cmake
+@@ -3,9 +3,16 @@
+ # License: BSD 2-Clause
+ 
+ option (ENABLE_RESOURCE_EMBED "Embed resources inside the executable" OFF)
++option (ENABLE_BINCAT_SH "Prepare resource files using the 'bincat.sh' shell script" ON)
++
++if (ENABLE_BINCAT_SH OR CMAKE_CROSSCOMPILING)
++    set (embed_use_bincat_sh YES)
++endif ()
+ 
+ # Build "bincat" for concatenating files.
+-if (NOT ENABLE_RESOURCE_EMBED)
++if (embed_use_bincat_sh)
++    set (BINCAT_COMMAND ${CMAKE_SOURCE_DIR}/res/bincat.sh)
++elseif (NOT ENABLE_RESOURCE_EMBED)
+     message (STATUS "Compiling bincat for merging resource files...")
+     set (_catDir ${CMAKE_BINARY_DIR}/res)
+     execute_process (COMMAND ${CMAKE_COMMAND} -E make_directory ${_catDir})
+diff --git a/res/bincat.sh b/res/bincat.sh
+new file mode 100755
+index 0000000..4648399
+--- /dev/null
++++ b/res/bincat.sh
+@@ -0,0 +1,22 @@
++#!/bin/sh
++# Binary Resource Concatenator
++# Copyright: 2021 Jaakko Keränen <jaakko.keranen@iki.fi>
++# License: BSD 2-Clause
++
++OUTPUT=--
++SIZES=""
++for fn in "$@"; do
++    if [ "$OUTPUT" = "--" ]; then        
++        OUTPUT=$fn
++        rm -f "$OUTPUT"
++    else
++        vals=$(/bin/ls -l "$fn")
++        SIZE=$(echo "$vals" | awk '{print $4}')
++        if [ "$SIZES" = "" ]; then
++            SIZES="$SIZE"
++        else
++            SIZES=$SIZES\;$SIZE
++        fi
++        cat "$fn" >> "$OUTPUT"
++    fi
++done
++echo "$SIZES"
