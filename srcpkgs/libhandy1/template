@@ -1,7 +1,7 @@
 # Template file for 'libhandy1'
 pkgname=libhandy1
-version=1.0.3
-revision=2
+version=1.1.90
+revision=0
 wrksrc="libhandy-${version}"
 build_style=meson
 build_helper="gir"
@@ -16,7 +16,7 @@ maintainer="Paper <paper@tilde.institute>"
 license="LGPL-2.1-or-later"
 homepage="https://gitlab.gnome.org/GNOME/libhandy/"
 distfiles="${GNOME_SITE}/libhandy/${version%.*}/libhandy-${version}.tar.xz"
-checksum=559bb3acc2c362488917eb72ed25bdc181f4ae26ac94d177634cc5d34c867f7a
+checksum=b396ac085fe16c2bddcfe74925d0210c10575ba04c4f8e1fe5db6136e025fa36
 
 build_options="gir glade"
 desc_option_glade="Generate glade modules and catalog files"
