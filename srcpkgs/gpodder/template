@@ -1,19 +1,19 @@
 # Template file for 'gpodder'
 pkgname=gpodder
 version=3.10.17
-_commit=205ef48a6cae55489f0529c1cd1594a4559c39b7
+_commit=4a1a0ba9127d46aec80dca0bd3830bce9b31f34c
 revision=1
 wrksrc="gpodder-${_commit}"
 hostmakedepends="python3 intltool"
 depends="eyeD3 gtk+3 hicolor-icon-theme python3-dbus python3-gobject
- python3-html5lib python3-mygpoclient python3-podcastparser"
+ python3-html5lib python3-mygpoclient python3-podcastparser libhandy1"
 checkdepends="${depends} python3-MiniMock python3-coverage desktop-file-utils"
 short_desc="Podcast client"
 maintainer="bra1nwave <bra1nwave@protonmail.com>"
 license="GPL-3.0-or-later"
-homepage="https://github.com/tpikonen/gpodder"
-distfiles="https://github.com/tpikonen/gpodder/archive/$_commit.tar.gz"
-checksum=e1dc2739731cffa02a9d2a167f8a52eb0dabc191255cd8d0f873510061f06973
+homepage="https://github.com/gpodder/gpodder"
+distfiles="https://github.com/gpodder/gpodder/archive/$_commit.tar.gz"
+checksum=a81b46b42d8180af8c8d79c46e846215c9cefe322dd0c5f97337690726498d0b
 
 do_check() {
 	make releasetest
