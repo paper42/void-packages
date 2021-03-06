@@ -1,8 +1,10 @@
 # Template file for 'libhandy1'
 pkgname=libhandy1
 version=1.1.90
+_commit=1366d987b8b5455304a91790326dd766ecb8a1be
 revision=0
-wrksrc="libhandy-${version}"
+wrksrc="libhandy-${_commit}"
+#wrksrc="libhandy-${version}"
 build_style=meson
 build_helper="gir"
 configure_args="-Dexamples=true -Dtests=true
@@ -15,8 +17,10 @@ short_desc="GTK+3 building blocks for modern adaptive applications"
 maintainer="Paper <paper@tilde.institute>"
 license="LGPL-2.1-or-later"
 homepage="https://gitlab.gnome.org/GNOME/libhandy/"
-distfiles="${GNOME_SITE}/libhandy/${version%.*}/libhandy-${version}.tar.xz"
-checksum=b396ac085fe16c2bddcfe74925d0210c10575ba04c4f8e1fe5db6136e025fa36
+#distfiles="${GNOME_SITE}/libhandy/${version%.*}/libhandy-${version}.tar.xz"
+distfiles="https://gitlab.gnome.org/GNOME/libhandy/-/archive/${_commit}/libhandy-${_commit}.tar.gz"
+checksum=25018bd6907f045a593c2139a8f60efe6e90e2baf33a7be2bde3d10f40091f5e
+patch_args=-Np1
 
 build_options="gir glade"
 desc_option_glade="Generate glade modules and catalog files"
