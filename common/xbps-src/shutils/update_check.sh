@@ -57,6 +57,7 @@ update_check() {
               *//gitlab.*|\
               *bitbucket.org*|\
               *ftp.gnome.org*|\
+              *invent.kde.org*|\
               *kernel.org/pub/linux/kernel/*|\
               *cran.r-project.org/src/contrib*|\
               *rubygems.org*|\
@@ -122,7 +123,7 @@ update_check() {
                 pkgurlname="$(printf %s "$url" | cut -d/ -f4,5)"
                 url="https://github.com/$pkgurlname/tags"
                 rx='/archive/(v?|\Q'"$pkgname"'\E-)?\K[\d\.]+(?=\.tar\.gz")';;
-            *//gitlab.*)
+            *//gitlab.*|*invent.kde.org*)
                 pkgurlname="$(printf %s "$url" | cut -d/ -f1-5)"
                 url="$pkgurlname/tags"
                 rx='/archive/[^/]+/\Q'"$pkgname"'\E-v?\K[\d\.]+(?=\.tar\.gz")';;
