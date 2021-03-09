@@ -1,0 +1,15 @@
+# Template file for 'boop-gtk'
+pkgname=boop-gtk
+version=1.6.0
+revision=1
+wrksrc="Boop-GTK-$version"
+build_style=cargo
+hostmakedepends="pkg-config"
+makedepends="gtk+3-devel gtksourceview-devel glib-devel"
+depends=""
+short_desc="Scriptable scratchpad for developers"
+maintainer="Paper <paper@tilde.institute>"
+license="MIT"
+homepage="https://github.com/zoeyfyi/Boop-GTK/"
+distfiles="https://github.com/zoeyfyi/Boop-GTK/archive/v$version.tar.gz"
+checksum=ddb4662a26c949d77dc443cb0c2775308e006ab3bfefb30c7c9a81e64ce4f597
