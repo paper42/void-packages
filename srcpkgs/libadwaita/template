@@ -1,0 +1,36 @@
+# Template file for 'libadwaita'
+pkgname=libadwaita
+version=0.0.0.2021.02.04
+_commit=0a3ec432ce1e635841f56bb23f5e97abdc3c1102
+revision=1
+wrksrc="libadwaita-${_commit}"
+build_style=meson
+build_helper="gir"
+# tests need X anyway, so no need to build them
+configure_args="-Dexamples=true -Dtests=false $(vopt_bool gir vapi)
+ -Dintrospection=$(vopt_if gir enabled disabled)"
+hostmakedepends="glib-devel pkg-config $(vopt_if gir vala-devel) gettext"
+makedepends="gtk4-devel libglib-devel harfbuzz-devel"
+short_desc="GTK4 Building blocks for modern adaptive applications"
+maintainer="Paper <paper@tilde.institute>"
+license="LGPL-2.0-or-later"
+homepage="https://gitlab.gnome.org/GNOME/libhandy/"
+distfiles="https://gitlab.gnome.org/exalm/libadwaita/-/archive/${_commit}/libadwaita-${_commit}.tar.gz"
+checksum=e330f932caeeaf65c2373af660174f7c1e8fc04e728de35970004e7af057b9aa
+
+build_options="gir"
+build_options_default="gir"
+
+libadwaita-devel_package() {
+	depends="${sourcepkg}>=${version}_${revision} gtk4-devel"
+	short_desc+=" - development files"
+	pkg_install() {
+		vmove "usr/lib/*.so"
+		vmove usr/include
+		vmove usr/lib/pkgconfig
+		if [ "$build_option_gir" ]; then
+			vmove usr/share/gir-1.0
+			vmove usr/share/vala
+		fi
+	}
+}
