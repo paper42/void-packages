@@ -1,7 +1,7 @@
 # Template file for 'libhandy1'
 pkgname=libhandy1
 version=1.1.90
-_commit=1366d987b8b5455304a91790326dd766ecb8a1be
+_commit=8612ab3aba50d8444a9db4ae9a348e3f814859d3
 revision=0
 wrksrc="libhandy-${_commit}"
 #wrksrc="libhandy-${version}"
@@ -19,8 +19,7 @@ license="LGPL-2.1-or-later"
 homepage="https://gitlab.gnome.org/GNOME/libhandy/"
 #distfiles="${GNOME_SITE}/libhandy/${version%.*}/libhandy-${version}.tar.xz"
 distfiles="https://gitlab.gnome.org/GNOME/libhandy/-/archive/${_commit}/libhandy-${_commit}.tar.gz"
-checksum=25018bd6907f045a593c2139a8f60efe6e90e2baf33a7be2bde3d10f40091f5e
-patch_args=-Np1
+checksum=398d30b11b18fc7a9d50d39c7c5d3a08812bbbba57ed3263c5acb2d9af81f181
 
 build_options="gir glade"
 desc_option_glade="Generate glade modules and catalog files"
