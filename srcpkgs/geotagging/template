@@ -1,0 +1,15 @@
+# Template file for 'geotagging'
+pkgname=geotagging
+version=0.5.7
+revision=1
+build_style=cmake
+hostmakedepends="git"
+makedepends="qt5-webengine-devel qt5-declarative-devel qt5-webchannel-devel
+  qt5-location-devel qt5-tools-devel exiv2-devel"
+depends=""
+short_desc="Photography geotagging tool"
+maintainer="Paper <paper@tilde.institute>"
+license="GPL-3.0-or-later"
+homepage="https://github.com/jmlich/geotagging/"
+distfiles="https://github.com/jmlich/geotagging/archive/${version}.tar.gz"
+checksum=85c44348f65c60f03d6b9821a14ff58565c46341c5b9538d02da0d63491ea865
